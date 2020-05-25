@@ -6,41 +6,41 @@
     <content><![CDATA[<p>​        <strong>The story started when a problem like this is sent to me.</strong></p>
 <p><img src="https://s1.ax1x.com/2020/05/25/tCJIIS.png" alt="tCJIIS.png"></p>
 <hr>
-<p>Actually it was relatively simple for me, but soon I found there are something that brought me some questions:<br><img src="https://s1.ax1x.com/2020/05/25/tCJKuq.png" alt="tCJKuq.png"></p>
-<p>The question ask me to make the function be exactly the same with the example, the input of data must be completed in a pair of brackets with all data in it , which means I need to work out a way to make the data separated by some special methods that I have never learnt before, I could only make a function like this at first, which is not that perfect:</p>
+<p>Actually it was relatively simple for me, but soon I found there were something that brought me some questions:<br><img src="https://s1.ax1x.com/2020/05/25/tCJKuq.png" alt="tCJKuq.png"></p>
+<p>The question asked me to make the function be exactly the same with the example, the input of data must be completed in a pair of brackets with all data in it , which meant I need to work out a way to make the data separated by some special methods that I have never learnt before, I could only make a function like this at first, which was not that perfect:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'your principal'</span>)</span><br><span class="line">P = float(input())</span><br><span class="line">print(<span class="string">'What about the annual interest rate?'</span>)</span><br><span class="line">rr= float(input())</span><br><span class="line">print(<span class="string">'what about the duration?'</span>)</span><br><span class="line">nn= float(input())</span><br><span class="line">n=nn*<span class="number">12</span></span><br><span class="line">r=rr/<span class="number">12</span>/<span class="number">100</span></span><br><span class="line"><span class="keyword">if</span> r ==<span class="number">0</span>:</span><br><span class="line">    MP=P/n</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    MP= P * (r*(<span class="number">1</span>+r)**n)/((<span class="number">1</span>+r)**n<span class="number">-1</span>)</span><br><span class="line">print(MP)</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>To solve the brackets problem, I found some information about the way to separate data with a single function nicely, but unfortunately, I failed to find one, because the description about the function is not clear enough or the function never exists.</p>
+<p>To solve the brackets problem, I found some information about the way to separate data with a single function nicely, but unfortunately, I failed to find one, because the description about the function was not clear enough or the function never exists.</p>
 <p><em>what about changing a way of thinking?</em></p>
-<p>I found that the input of data can be separated from the beginning, which means the separation of the data will be done already. Once again I searched the function with similar effect. I found it : <em>eval</em></p>
+<p>I found that the input of data can be separated from the beginning, which meant the separation of the data will be done already. Once again I searched the function with similar effect. I found it : <em>eval</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">OneHaha,TwoHaha=eval(input())</span><br><span class="line">print(OneHaha)</span><br><span class="line">print(TwoHaha)</span><br></pre></td></tr></table></figure>
 
 <p>Once I put   <em>1,2</em>   in the function, the value1 is given to OneHaha, the value2 is given to TwoHaha. (Nicely!!!)</p>
-<p>So the function of me turns to this:</p>
+<p>So the function turned to this:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#ohhhhhhhhhhhhh</span></span><br><span class="line">P,rr,nn=eval(str(input(<span class="string">'('</span>+<span class="string">'principal, annual_interest_rate, duration '</span>+<span class="string">')'</span>).strip(<span class="string">'()'</span>)))</span><br><span class="line">n=nn*<span class="number">12</span></span><br><span class="line">r=rr/<span class="number">12</span>/<span class="number">100</span></span><br><span class="line"><span class="keyword">if</span> r ==<span class="number">0</span>:</span><br><span class="line">    MP=P/n</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    MP= P * (r*(<span class="number">1</span>+r)**n)/((<span class="number">1</span>+r)**n<span class="number">-1</span>)</span><br><span class="line">print(MP)</span><br></pre></td></tr></table></figure>
 
-<p>(By the way, I used a strip , which can remove the brackets of the input, to make this, I need to turn the input to be exactly the string, so that the strip can deal with its string.)</p>
+<p>(By the way, I used a strip , which could remove the brackets of the input, to make this, I need to turn the input to be exactly the string, so that the strip could deal with its string.)</p>
 <hr>
 <p>The similar things happened when I was trying to solve the part2: Calculate the remaining balance of a loan.</p>
 <p>This is the initial work(old way of input):</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'principal?'</span>)</span><br><span class="line">P= float(input())</span><br><span class="line">print( <span class="string">"annual interest rate?"</span>)</span><br><span class="line">rr=float(input())</span><br><span class="line">print(<span class="string">'duration?'</span>)</span><br><span class="line">nn=float(input())</span><br><span class="line">print(<span class="string">'number of payments?'</span>)</span><br><span class="line">np=float(input())</span><br><span class="line">r=(rr/<span class="number">100</span>)/<span class="number">12</span></span><br><span class="line">n=nn*<span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> rr==<span class="number">0</span>:</span><br><span class="line">    RLB=P*(<span class="number">1</span>-np/n)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    RLB=P*((<span class="number">1</span>+r)**n-(<span class="number">1</span>+r)**np)/((<span class="number">1</span>+r)**n<span class="number">-1</span>)</span><br><span class="line">print(RLB)</span><br></pre></td></tr></table></figure>
 
-<p>Then it turns to this:</p>
+<p>Then it turned to this:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#ohhhhhhhhhhhhh</span></span><br><span class="line">P,rr,nn,np=eval(str(input(<span class="string">'('</span>+<span class="string">'principal, annual_interest_rate, duration , number_of_payments'</span>+<span class="string">')'</span>).strip(<span class="string">'()'</span>)))</span><br><span class="line">P=float(P)</span><br><span class="line">rr=float(rr)</span><br><span class="line">nn=float(nn)</span><br><span class="line">np=float(np)</span><br><span class="line">r=(rr/<span class="number">100</span>)/<span class="number">12</span></span><br><span class="line">n=nn*<span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> rr==<span class="number">0</span>:</span><br><span class="line">    RLB=P*(<span class="number">1</span>-np/n)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    RLB=P*((<span class="number">1</span>+r)**n-(<span class="number">1</span>+r)**np)/((<span class="number">1</span>+r)**n<span class="number">-1</span>)</span><br><span class="line">print(RLB)</span><br></pre></td></tr></table></figure>
 
 <p>Amazing isn’t it?</p>
-<p>With the experience in part1 and part2, part3 seems very simple.</p>
+<p>With the experience in part1 and part2, part3 seemed very simple.</p>
 <p>Actually,  <strong>it is simple</strong>.<img src="https://s1.ax1x.com/2020/05/25/tCwnFP.png" alt="tCwnFP.png"></p>
 <hr>
-<p>Actually I asked my classmates to provide some extra methods that works like the <em>eval</em>.</p>
+<p>Actually I asked my classmates to provide some extra methods that worked like the <em>eval</em>.</p>
 <p><em>Here it is:</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t= list(input())</span><br><span class="line">t= (<span class="string">''</span>.join(t[<span class="number">1</span>:<span class="number">-1</span>])).split(<span class="string">','</span>)</span><br><span class="line">p= float (t[<span class="number">0</span>])</span><br><span class="line">r= float (t[<span class="number">1</span>])</span><br><span class="line">n= float (t[<span class="number">2</span>])</span><br><span class="line">print(p)</span><br><span class="line">print(r)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
 
 <p>(Method provided by Arya, thanks!)</p>
 <hr>
 <p>I haven’t learnt the function <em>eval</em> yet, so up to now I can only use it in the way I provided above only, I will learn all about this function in the future!</p>
-<p><strong><em>GOOD LUCK, magicRuiz!</em></strong></p>
+<p><strong><em>GOOD LUCK, Ruiz!</em></strong></p>
 ]]></content>
       <tags>
         <tag>Python</tag>
