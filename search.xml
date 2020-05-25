@@ -33,7 +33,7 @@
 <p>With the experience in part1 and part2, part3 seemed very simple.</p>
 <p>Actually,  <strong>it is simple</strong>.<img src="https://s1.ax1x.com/2020/05/25/tCwnFP.png" alt="tCwnFP.png"></p>
 <hr>
-<p>Actually I asked my classmates to provide some extra methods that worked like the <em>eval</em>.</p>
+<p>I also asked my classmates to provide some extra methods that worked like the <em>eval</em>.</p>
 <p><em>Here it is:</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">t= list(input())</span><br><span class="line">t= (<span class="string">''</span>.join(t[<span class="number">1</span>:<span class="number">-1</span>])).split(<span class="string">','</span>)</span><br><span class="line">p= float (t[<span class="number">0</span>])</span><br><span class="line">r= float (t[<span class="number">1</span>])</span><br><span class="line">n= float (t[<span class="number">2</span>])</span><br><span class="line">print(p)</span><br><span class="line">print(r)</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
 
