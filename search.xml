@@ -16,7 +16,7 @@
 <p>I found that the input of data can be separated from the beginning, which meant the separation of the data will be done already. Once again I searched the function with similar effect. I found it : <em>eval</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">OneHaha,TwoHaha=eval(input())</span><br><span class="line">print(OneHaha)</span><br><span class="line">print(TwoHaha)</span><br></pre></td></tr></table></figure>
 
-<p>Once I put   <em>1,2</em>   in the function, the value1 is given to OneHaha, the value2 is given to TwoHaha. (Nicely!!!)</p>
+<p>Once I put   <em>1,2</em>   in the function, the value 1 is given to OneHaha, the value 2 is given to TwoHaha. (Nicely!!!)</p>
 <p>So the function turned to this:</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#ohhhhhhhhhhhhh</span></span><br><span class="line">P,rr,nn=eval(str(input(<span class="string">'('</span>+<span class="string">'principal, annual_interest_rate, duration '</span>+<span class="string">')'</span>).strip(<span class="string">'()'</span>)))</span><br><span class="line">n=nn*<span class="number">12</span></span><br><span class="line">r=rr/<span class="number">12</span>/<span class="number">100</span></span><br><span class="line"><span class="keyword">if</span> r ==<span class="number">0</span>:</span><br><span class="line">    MP=P/n</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    MP= P * (r*(<span class="number">1</span>+r)**n)/((<span class="number">1</span>+r)**n<span class="number">-1</span>)</span><br><span class="line">print(MP)</span><br></pre></td></tr></table></figure>
 
