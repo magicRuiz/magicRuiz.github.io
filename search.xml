@@ -12,7 +12,7 @@
 
 <hr>
 <p>To solve the brackets problem, I found some information about the way to separate data with a single function nicely, but unfortunately, I failed to find one, because the description about the function is not clear enough or the function never exists.</p>
-<p><em>what about change a way of thinking?</em></p>
+<p><em>what about changing a way of thinking?</em></p>
 <p>I found that the input of data can be separated from the beginning, which means the separation of the data will be done already. Once again I searched the function with similar effect. I found it : <em>eval</em></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">OneHaha,TwoHaha=eval(input())</span><br><span class="line">print(OneHaha)</span><br><span class="line">print(TwoHaha)</span><br></pre></td></tr></table></figure>
 
