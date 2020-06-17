@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hollow Diamond and Pascal Triangle(The importance of encapsulation)</title>
+    <url>/2020/06/17/Python3/</url>
+    <content><![CDATA[<p>Lately I am trying to do some works about the programming questions that was initially set for visual basic learners (I chose the economic lesson instead of the computer science so I learn nothing about visual basic ). The only difference that I had with the VB learners was that I was using the Python.</p>
+<hr>
+<p><strong>The first question asked us to print a hollow diamond</strong></p>
+<p>I divided the diamond into 2 parts: the top and bottom line and the regular lines (which are the middle lines)</p>
+<p>I do so because the first and last lines are very special with only one character printed, so the formula will be different.</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NZlgaT.png" alt="NZlgaT.png"></p>
+<p>With the uses of  ‘for i in range’ , the task was completed.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x=int(input())</span><br><span class="line">print(<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (<span class="number">2</span>,int((x+<span class="number">1</span>)/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">    print(<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i)+<span class="string">'*'</span>+<span class="string">' '</span>*int((i<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (int((x<span class="number">-1</span>)/<span class="number">2</span>),<span class="number">1</span>,<span class="number">-1</span>):</span><br><span class="line">    print(<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i)+<span class="string">'*'</span>+<span class="string">' '</span>*int((i<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i))</span><br><span class="line">print(<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">11</span></span><br><span class="line">     *     </span><br><span class="line">    * *    </span><br><span class="line">   *   *   </span><br><span class="line">  *     *  </span><br><span class="line"> *       * </span><br><span class="line">*         *</span><br><span class="line"> *       * </span><br><span class="line">  *     *  </span><br><span class="line">   *   *   </span><br><span class="line">    * *    </span><br><span class="line">     *</span><br></pre></td></tr></table></figure>
+
+<p>The process really took me a long period of time, I soon realized the problem can be solved by the ‘def’ because many tough formula can be put in it.</p>
+<hr>
+<p>*<em>The second question asked us to print a pascal triangle *</em></p>
+<p>In this question, the ‘def’ helped a lot because I didn’t know the direct order about the factorial and the combination, so I made them. (JC means the Chinese character of factorial)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">JC</span><span class="params">(x)</span>:</span></span><br><span class="line">    y=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range (<span class="number">1</span>,x+<span class="number">1</span>):</span><br><span class="line">        y=y*i </span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">C</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    final= int(JC(x)/(JC(x-y)*JC(y)))</span><br><span class="line">    <span class="keyword">return</span> final</span><br></pre></td></tr></table></figure>
+
+<p>After that the problem concentrated on the space I needed to give for the triangle because the shape of it was special and between the lines the numbers went like this:</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NZ3yNT.png" alt="NZ3yNT.png"></p>
+<p>I soon found that there was a rule so the problem was easy.</p>
+<p>Then I need to use two loop structures(‘for i in range’) for each line and the contents in it respectively.</p>
+<p>Here is the final work:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">H= int(input())</span><br><span class="line">print(<span class="string">' '</span>*H+<span class="string">'1'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,H+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">' '</span>*(H-i),end=<span class="string">''</span>)</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range (i,<span class="number">0</span>,<span class="number">-1</span>):</span><br><span class="line">        print(C(i,x),end=<span class="string">' '</span>)</span><br><span class="line">        print(<span class="string">'1'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The whole process was easier than the first one because I use the ‘def’ to make the formula easier with the numbers input only. </p>
+<hr>
+<p><em>The encapsulation made the whole process easier to be created and easier to read.</em></p>
+<p>This is what I got from this case, before doing the encapsulations the formula in the brackets really bothered me, I will try the method from now on.</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Data Processing Problems(something about eval)</title>
     <url>/2020/05/25/Python2/</url>
     <content><![CDATA[<p>​        <strong>The story started when a problem like this is sent to me.</strong></p>
