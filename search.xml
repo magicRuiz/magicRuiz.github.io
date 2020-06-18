@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>The &#39;%&#39; and some print skills</title>
+    <url>/2020/06/18/Python4/</url>
+    <content><![CDATA[<p>I tried to print the multiplication table with python, but soon I found that there is a problem with the “end=’ ‘ “. Every time I always found that the contents that should be in the next line would go to the pervious line, which means I cannot end the order.</p>
+<p>However, I found that the problem can be solved by an extra space printed：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(i,<span class="string">'*'</span>,j,<span class="string">'='</span>,i*j,end=<span class="string">' '</span>)</span><br><span class="line">print()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>The solution was simple but not so easy to find.</p>
+<hr>
+<p>There was also an very interesting thing that I found when I was trying to find some method for me to print the multiplication table.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">1</span>,x+<span class="number">1</span>):</span><br><span class="line">        print( <span class="string">"%d*%d=%2d\t"</span> %(y,x,x*y),end=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The ‘%’ work as a normal variable with one character,all the contents are explained at last (<em>%(y,x,x*y)</em>)</p>
+<p>The method is suitable for some complicated print missions that we have the need to put everything after them.</p>
+<hr>
+<p><em>So…</em></p>
+<p><em>Is this method very useful?</em></p>
+<p><em>maybe</em></p>
+<p>I will try to use this method if some questions will need it. <em>Let’s go and see!</em></p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hollow Diamond and Pascal Triangle(The importance of encapsulation)</title>
     <url>/2020/06/17/Python3/</url>
     <content><![CDATA[<p>Lately I am trying to do some works about the programming questions that was initially set for visual basic learners (I chose the economic lesson instead of the computer science so I learn nothing about visual basic ). The only difference that I had with the VB learners was that I was using the Python.</p>

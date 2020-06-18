@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Halo is on ME!">
-<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
 <meta property="og:site_name" content="Halo is on ME!">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="magic Ruiz">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Python/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/python/"/>
 
 
 
 
 
-  <title>Tag: Python | Halo is on ME!</title>
+  <title>Tag: python | Halo is on ME!</title>
   
 
 
@@ -275,7 +275,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Python<small>Tag</small>
+        <h1>python<small>Tag</small>
         </h1>
       </div>
 
@@ -287,37 +287,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/06/17/Python3/" itemprop="url">
+            <a class="post-title-link" href="/2020/06/18/Python4/" itemprop="url">
               
-                <span itemprop="name">Hollow Diamond and Pascal Triangle(The importance of encapsulation)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-17T23:02:02+08:00"
-              content="2020-06-17" >
-          06-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/05/25/Python2/" itemprop="url">
-              
-                <span itemprop="name">Data Processing Problems(something about eval)</span>
+                <span itemprop="name">The '%' and some print skills</span>
               
             </a>
         
@@ -325,37 +297,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2020-05-25T20:26:18+08:00"
-              content="2020-05-25" >
-          05-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/05/03/Python1/" itemprop="url">
-              
-                <span itemprop="name">Origin of Python</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-05-03T22:00:06+08:00"
-              content="2020-05-03" >
-          05-03
+              datetime="2020-06-18T11:24:26+08:00"
+              content="2020-06-18" >
+          06-18
         </time>
       </div>
 
@@ -421,7 +365,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -443,7 +387,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -963,6 +907,75 @@
                 searchResultList += result.item;
               })
               searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+   searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
             }
           }
