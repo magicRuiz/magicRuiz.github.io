@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>the monkeys and their king</title>
+    <url>/2020/08/06/c-the-monkeys-and-their-king/</url>
+    <content><![CDATA[<p>The story is like this, a group of monkey decide to select a king from them, they had a rule for the selection:</p>
+<p> <em>let the monkeys sit in a circle and give them a number which is from 1 to 3 separately, if a monkey gets a number 3, the monkey must quit and the rest of the monkeys continue having the game till there is only one monkey left, the monkey left is the king of the monkeys.</em></p>
+<p>I need to write a program which can give a prediction according to the number of monkeys in the game which is entered.  </p>
+<hr>
+<p>The rules is simple but not so easy, the circle problem is the difficulty.</p>
+<p>To make number in a circle, I need to have a automatic system which can make the next number of the largest number be the first number, just like this:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">i = i+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>( i==num)</span><br><span class="line">		&#123;</span><br><span class="line">			i = <span class="number">0</span>;	</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I need to change the number given to the monkeys every time according to the order, also, the number should be like this: ‘1,2,3,1,2,3’ (however I made the 3 to be 0).</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">add = add+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(add ==<span class="number">3</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				add = <span class="number">0</span>;</span><br><span class="line">				remain = remain<span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+
+<p>After that it is no a big deal.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> add=<span class="number">0</span>,i=<span class="number">-1</span>,num=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;num);</span><br><span class="line">	<span class="keyword">int</span> mark[num];</span><br><span class="line">	<span class="keyword">int</span> remain = num;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		mark[i]=<span class="number">123</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	i = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">while</span>(remain&gt;<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		i = i+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>( i==num)</span><br><span class="line">		&#123;</span><br><span class="line">			i = <span class="number">0</span>;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (mark[i]!=<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			add = add+<span class="number">1</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(add ==<span class="number">3</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				add = <span class="number">0</span>;</span><br><span class="line">				remain = remain<span class="number">-1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			mark[i]=add;</span><br><span class="line">		&#125;</span><br><span class="line">			</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (mark[i]!=<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,(i+<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s1.ax1x.com/2020/08/06/a2bDKJ.png" alt="a2bDKJ.png"></p>
+<p>Done!</p>
+]]></content>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>the diamond creating</title>
     <url>/2020/08/02/c-the-diamond/</url>
     <content><![CDATA[<p>These days I am learning the C programming language, which is the brand new topic for me. The C programming language is the further exploration.</p>
