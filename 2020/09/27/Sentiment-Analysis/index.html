@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="These days I am learning the C programming language, which is the brand new topic for me. The C programming language is the further exploration. The first thing that I want to tell is about some inter">
+<meta name="description" content="Background: With the emergence of Internet companies such as Google, Facebook, and Twitter, more and more data accessible online is comprised of text. Textual data and the computational means of proce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="the diamond creating">
-<meta property="og:url" content="http://yoursite.com/2020/08/02/c-the-diamond/index.html">
+<meta property="og:title" content="Sentiment Analysis">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/Sentiment-Analysis/index.html">
 <meta property="og:site_name" content="Ruiz&#39;s Blog, Welcome!">
-<meta property="og:description" content="These days I am learning the C programming language, which is the brand new topic for me. The C programming language is the further exploration. The first thing that I want to tell is about some inter">
+<meta property="og:description" content="Background: With the emergence of Internet companies such as Google, Facebook, and Twitter, more and more data accessible online is comprised of text. Textual data and the computational means of proce">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/02/aJtGnS.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/02/aJDITf.png">
-<meta property="article:published_time" content="2020-08-02T02:37:00.000Z">
-<meta property="article:modified_time" content="2020-08-02T03:46:37.717Z">
+<meta property="article:published_time" content="2020-09-26T16:21:48.000Z">
+<meta property="article:modified_time" content="2020-09-26T16:25:04.932Z">
 <meta property="article:author" content="magic Ruiz">
-<meta property="article:tag" content="C">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/02/aJtGnS.png">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/08/02/c-the-diamond/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/09/27/Sentiment-Analysis/"/>
 
 
 
 
 
-  <title>the diamond creating | Ruiz's Blog, Welcome!</title>
+  <title>Sentiment Analysis | Ruiz's Blog, Welcome!</title>
   
 
 
@@ -290,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/02/c-the-diamond/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/27/Sentiment-Analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="magic Ruiz">
@@ -307,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">the diamond creating</h1>
+          <h1 class="post-title" itemprop="name headline">Sentiment Analysis</h1>
         
 
         <div class="post-meta">
@@ -319,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-02T10:37:00+08:00">
-                2020-08-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-27T00:21:48+08:00">
+                2020-09-27
               </time>
             
 
@@ -338,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/08/02/c-the-diamond/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/02/c-the-diamond/" itemprop="commentCount"></span>
+                <a href="/2020/09/27/Sentiment-Analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/27/Sentiment-Analysis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -372,32 +369,9 @@
       
 
       
-        <p>These days I am learning the C programming language, which is the brand new topic for me. The C programming language is the further exploration.</p>
-<p>The first thing that I want to tell is about some interesting tasks, but I will start with one that I did before with python, which is the diamond generating.</p>
-<hr>
-<p>This is the thing that I did with python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=int(input())</span><br><span class="line">print(<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (<span class="number">2</span>,int((x+<span class="number">1</span>)/<span class="number">2</span>)+<span class="number">1</span>):</span><br><span class="line">    print(<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i)+<span class="string">'*'</span>+<span class="string">' '</span>*int((i<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (int((x<span class="number">-1</span>)/<span class="number">2</span>),<span class="number">1</span>,<span class="number">-1</span>):</span><br><span class="line">    print(<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i)+<span class="string">'*'</span>+<span class="string">' '</span>*int((i<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x+<span class="number">1</span>)/<span class="number">2</span>-i))</span><br><span class="line">print(<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>)+<span class="string">'*'</span>+<span class="string">' '</span>*int((x<span class="number">-1</span>)/<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+        <h4 id="Background"><a href="#Background" class="headerlink" title="Background:"></a>Background:</h4><p> With the emergence of Internet companies such as Google, Facebook, and Twitter, more and more data accessible online is comprised of text. Textual data and the computational means of processing it and extracting information is also increasingly more important in areas such as business, humanities, social sciences, etc. In this assignment, you will deal with textual analysis.<br>Twitter has become very popular, with many people “tweeting” aspects of their daily lives. This “flow of tweets” has recently become a way to study or guess how people feel about various aspects of the world or their own life. For example, analysis of tweets has been used to try to determine how certain geographical regions may be voting – this is done by analyzing the content, the words, and phrases, in tweets. Similarly, analysis of keywords or phrases in tweets can be used to determine how popular or unpopular a movie might be. This is often referred to as sentiment analysis.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#read the document</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"keywords"</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf-8"</span>)<span class="keyword">as</span> f:</span><br><span class="line">    lines = f.readlines()</span><br><span class="line">keywords = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    keyword,value = line.replace(<span class="string">'\n'</span>,<span class="string">''</span>).split(<span class="string">','</span>)</span><br><span class="line">    keywords[keyword]=int(value)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"tweets"</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf-8"</span>)<span class="keyword">as</span> tws:</span><br><span class="line">    content = tws.readlines()</span><br><span class="line">tweets=content</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#edit the contents</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(tweets)):</span><br><span class="line">    tryb = tweets[i]</span><br><span class="line">    tryb=tryb.replace(<span class="string">'['</span>,<span class="string">''</span>)</span><br><span class="line">    tryb=tryb.replace(<span class="string">']'</span>,<span class="string">''</span>)</span><br><span class="line">    </span><br><span class="line">    listb=tryb.split(<span class="string">' '</span>)</span><br><span class="line">    listb[<span class="number">1</span>]=float(listb[<span class="number">1</span>])</span><br><span class="line">    tweets[i]= listb</span><br><span class="line"><span class="keyword">for</span> q <span class="keyword">in</span> range(<span class="number">0</span>,len(tweets)):</span><br><span class="line">    ind = tweets[q]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>,len(ind)):</span><br><span class="line">    <span class="keyword">while</span> ind[i]!=<span class="string">''</span> <span class="keyword">and</span> (ind[i][<span class="number">0</span>].isalpha()!=<span class="literal">True</span> <span class="keyword">or</span> ind[i][<span class="number">-1</span>].isalpha()!=<span class="literal">True</span>) :</span><br><span class="line">            <span class="keyword">if</span> ind[i][<span class="number">0</span>].isalpha()!=<span class="literal">True</span>:</span><br><span class="line">                ind[i]=ind[i].strip(ind[i][<span class="number">0</span>])</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> ind[i][<span class="number">-1</span>].isalpha()!=<span class="literal">True</span>:</span><br><span class="line">                ind[i] =ind[i].strip(ind[i][<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"><span class="keyword">for</span> ind <span class="keyword">in</span> tweets:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>,len(ind)):</span><br><span class="line">        ind[i]=ind[i].lower()</span><br><span class="line">finalplaceandvalue=&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#caculate value</span></span><br><span class="line"><span class="keyword">for</span> q <span class="keyword">in</span> range(<span class="number">0</span>,len(tweets)):</span><br><span class="line">    ind = tweets[q]</span><br><span class="line">    num =<span class="number">0</span> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>,len(ind)):</span><br><span class="line">        <span class="keyword">for</span> keywd,keyvalue <span class="keyword">in</span> keywords.items():</span><br><span class="line">            <span class="keyword">if</span> ind[i].find(keywd)!=<span class="number">-1</span>:</span><br><span class="line">                num = num+keyvalue</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ind[<span class="number">1</span>]<span class="keyword">in</span> finalplaceandvalue.keys():</span><br><span class="line">        finalplaceandvalue[ind[<span class="number">1</span>]]=finalplaceandvalue[ind[<span class="number">1</span>]]+num</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        finalplaceandvalue.update(&#123;ind[<span class="number">1</span>]:num&#125;)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"><span class="comment">#classification and caculation    </span></span><br><span class="line">valid=&#123;<span class="string">'Eastern'</span>:<span class="number">0</span>,<span class="string">'Central'</span>:<span class="number">0</span>,<span class="string">'Mountain'</span>:<span class="number">0</span>,<span class="string">'Pacific'</span>:<span class="number">0</span>&#125;</span><br><span class="line">number=&#123;<span class="string">'Eastern'</span>:<span class="number">0</span>,<span class="string">'Central'</span>:<span class="number">0</span>,<span class="string">'Mountain'</span>:<span class="number">0</span>,<span class="string">'Pacific'</span>:<span class="number">0</span>&#125;</span><br><span class="line">sumofall=&#123;<span class="string">'Eastern'</span>:<span class="number">0</span>,<span class="string">'Central'</span>:<span class="number">0</span>,<span class="string">'Mountain'</span>:<span class="number">0</span>,<span class="string">'Pacific'</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> finalplaceandvalue.items():</span><br><span class="line">    <span class="keyword">if</span> k&gt; <span class="number">-125.242264</span> <span class="keyword">and</span> k&lt;<span class="number">-115.236428</span>:</span><br><span class="line">        number[<span class="string">'Pacific'</span>] = number[<span class="string">'Pacific'</span>]+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> v &gt;<span class="number">0</span>:</span><br><span class="line">            valid[<span class="string">'Pacific'</span>] = valid[<span class="string">'Pacific'</span>]+<span class="number">1</span></span><br><span class="line">        sumofall[<span class="string">'Pacific'</span>]= sumofall[<span class="string">'Pacific'</span>]+v</span><br><span class="line">    <span class="keyword">if</span> k&gt; <span class="number">-115.236428</span> <span class="keyword">and</span> k&lt;<span class="number">-101.998892</span>:</span><br><span class="line">        number[<span class="string">'Mountain'</span>] = number[<span class="string">'Mountain'</span>]+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> v &gt;<span class="number">0</span>:</span><br><span class="line">            valid[<span class="string">'Mountain'</span>] = valid[<span class="string">'Mountain'</span>]+<span class="number">1</span></span><br><span class="line">        sumofall[<span class="string">'Mountain'</span>]= sumofall[<span class="string">'Mountain'</span>]+v</span><br><span class="line">    <span class="keyword">if</span> k&gt; <span class="number">-101.998892</span> <span class="keyword">and</span> k&lt;<span class="number">-87.518395</span>:</span><br><span class="line">        number[<span class="string">'Central'</span>] = number[<span class="string">'Central'</span>]+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> v &gt;<span class="number">0</span>:</span><br><span class="line">            valid[<span class="string">'Central'</span>] = valid[<span class="string">'Central'</span>]+<span class="number">1</span></span><br><span class="line">        sumofall[<span class="string">'Central'</span>]= sumofall[<span class="string">'Central'</span>]+v</span><br><span class="line">    <span class="keyword">if</span> k&gt; <span class="number">-87.518395</span> <span class="keyword">and</span> k&lt;<span class="number">-67.44574</span>:</span><br><span class="line">        number[<span class="string">'Eastern'</span>] = number[<span class="string">'Eastern'</span>]+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> v &gt;<span class="number">0</span>:</span><br><span class="line">            valid[<span class="string">'Eastern'</span>] = valid[<span class="string">'Eastern'</span>]+<span class="number">1</span></span><br><span class="line">        sumofall[<span class="string">'Eastern'</span>]= sumofall[<span class="string">'Eastern'</span>]+v</span><br><span class="line">average=&#123;<span class="string">'Eastern'</span>:<span class="number">0</span>,<span class="string">'Central'</span>:<span class="number">0</span>,<span class="string">'Mountain'</span>:<span class="number">0</span>,<span class="string">'Pacific'</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> sumofall.items():</span><br><span class="line">    average[k]=v/number[k]</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">#tuples output</span></span><br><span class="line">Eastern = (average[<span class="string">'Eastern'</span>],valid[<span class="string">'Eastern'</span>],number[<span class="string">'Eastern'</span>])</span><br><span class="line">Central=(average[<span class="string">'Central'</span>],valid[<span class="string">'Central'</span>],number[<span class="string">'Central'</span>])</span><br><span class="line">Mountain=(average[<span class="string">'Mountain'</span>],valid[<span class="string">'Mountain'</span>],number[<span class="string">'Mountain'</span>])</span><br><span class="line">Pacific=(average[<span class="string">'Pacific'</span>],valid[<span class="string">'Pacific'</span>],number[<span class="string">'Pacific'</span>])</span><br><span class="line">print( Eastern)</span><br><span class="line">print(Central)</span><br><span class="line">print(Mountain)</span><br><span class="line">print(Pacific)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">11</span><br><span class="line">     *     </span><br><span class="line">    * *    </span><br><span class="line">   *   *   </span><br><span class="line">  *     *  </span><br><span class="line"> *       * </span><br><span class="line">*         *</span><br><span class="line"> *       * </span><br><span class="line">  *     *  </span><br><span class="line">   *   *   </span><br><span class="line">    * *    </span><br><span class="line">     *</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>So now I need to do the same thing with C.</p>
-<p>(by the way I am using the DEV cpp)</p>
-<p>This is the diamond  program without the hollow:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,nb,m,i;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"please give me the size of the diamond"</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;n/<span class="number">2</span>+<span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(m = <span class="number">0</span> ;m&lt;=(n/<span class="number">2</span>+<span class="number">1</span>-i);m++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"  "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(nb = <span class="number">1</span>;nb&lt;=i*<span class="number">2</span>+<span class="number">1</span>;nb++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"* "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i =n/<span class="number">2</span><span class="number">-1</span> ;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(m = <span class="number">0</span> ;m&lt;=(n/<span class="number">2</span>+<span class="number">1</span>-i);m++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"  "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(nb = <span class="number">1</span>;nb&lt;=i*<span class="number">2</span>+<span class="number">1</span>;nb++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"* "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>This diamond program created a diamond with more ‘  ‘, just like this:</p>
-<p><img src="https://s1.ax1x.com/2020/08/02/aJtGnS.png" alt="aJtGnS.png"></p>
-<p>But I think that is ok because the overall method is the same.</p>
-<hr>
-<p>When it comes to the hollow one, things are more difficult.</p>
-<p>I need to give the hollow part by removing the ‘*’ in the middle part.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,nb,m,i;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"please give me the size of the diamond "</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(m = <span class="number">0</span>;m&lt;n/<span class="number">2</span>;m++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*\n"</span>);</span><br><span class="line">	<span class="keyword">for</span> (m = <span class="number">2</span>;m&lt;=n/<span class="number">2</span>+<span class="number">1</span>;m++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i = n/<span class="number">2</span>+<span class="number">1</span>-m;i&gt;=<span class="number">1</span>;i-- )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">		<span class="keyword">for</span>(i = (m<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"*\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (m =n/<span class="number">2</span> ;m&gt;=<span class="number">2</span>;m--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i = n/<span class="number">2</span>+<span class="number">1</span>-m;i&gt;=<span class="number">1</span>;i-- )</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">		<span class="keyword">for</span>(i = (m<span class="number">-2</span>)*<span class="number">2</span>+<span class="number">1</span>;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"*\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(m = <span class="number">0</span>;m&lt;n/<span class="number">2</span>;m++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Because the first and the last line of the diamond is special: only one ‘*’ is printed.</p>
-<p>This is the result:</p>
-<p><img src="https://s1.ax1x.com/2020/08/02/aJDITf.png" alt="aJDITf.png"></p>
-<p>Just like the python.</p>
 
       
     </div>
@@ -415,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -428,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/13/Python6/" rel="next" title="Giving the Fibonacci Sequence and the callnum() creation">
-                <i class="fa fa-chevron-left"></i> Giving the Fibonacci Sequence and the callnum() creation
+              <a href="/2020/08/06/c-the-monkeys-and-their-king/" rel="next" title="the monkeys and their king">
+                <i class="fa fa-chevron-left"></i> the monkeys and their king
               </a>
             
           </div>
@@ -437,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/06/c-the-monkeys-and-their-king/" rel="prev" title="the monkeys and their king">
-                the monkeys and their king <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -497,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -562,6 +541,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
