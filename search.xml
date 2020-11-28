@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>the Iron Man cast</title>
+    <title>The Iron Man Cast</title>
     <url>/2020/11/28/the-Iron-Man-cast/</url>
     <content><![CDATA[<h3 id="About-this-analysis"><a href="#About-this-analysis" class="headerlink" title="About this analysis"></a>About this analysis</h3><p>This time I did a series of analysis about the movies and the relative information about the movies. For the data, I used a .json document full of the movies’ data and there are a lot of movies’ casts, producer’s names in it, I can search most movies with a proper way.</p>
 <p>Before doing that, I would like to introduce the things what we need to import:</p>
