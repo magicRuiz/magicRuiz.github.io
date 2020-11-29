@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Iron Man</h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1024;
+            height: 768;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "Robert Downey Jr.", "label": "Robert Downey Jr.", "shape": "dot", "size": 10, "title": "Robert Downey Jr."}, {"id": "Terrence Howard", "label": "Terrence Howard", "shape": "dot", "size": 10, "title": "Terrence Howard"}, {"id": "Jeff Bridges", "label": "Jeff Bridges", "shape": "dot", "size": 10, "title": "Jeff Bridges"}, {"id": "Shaun Toub", "label": "Shaun Toub", "shape": "dot", "size": 10, "title": "Shaun Toub"}, {"id": "Gwyneth Paltrow", "label": "Gwyneth Paltrow", "shape": "dot", "size": 10, "title": "Gwyneth Paltrow"}, {"id": "Don Cheadle", "label": "Don Cheadle", "shape": "dot", "size": 10, "title": "Don Cheadle"}, {"id": "Scarlett Johansson", "label": "Scarlett Johansson", "shape": "dot", "size": 10, "title": "Scarlett Johansson"}, {"id": "Sam Rockwell", "label": "Sam Rockwell", "shape": "dot", "size": 10, "title": "Sam Rockwell"}, {"id": "Mickey Rourke", "label": "Mickey Rourke", "shape": "dot", "size": 10, "title": "Mickey Rourke"}, {"id": "Samuel L. Jackson", "label": "Samuel L. Jackson", "shape": "dot", "size": 10, "title": "Samuel L. Jackson"}, {"id": "Guy Pearce", "label": "Guy Pearce", "shape": "dot", "size": 10, "title": "Guy Pearce"}, {"id": "Rebecca Hall", "label": "Rebecca Hall", "shape": "dot", "size": 10, "title": "Rebecca Hall"}, {"id": "St\u00e9phanie Szostak", "label": "St\u00e9phanie Szostak", "shape": "dot", "size": 10, "title": "St\u00e9phanie Szostak"}, {"id": "James Badge Dale", "label": "James Badge Dale", "shape": "dot", "size": 10, "title": "James Badge Dale"}, {"id": "Jon Favreau", "label": "Jon Favreau", "shape": "dot", "size": 10, "title": "Jon Favreau"}, {"id": "Ben Kingsley", "label": "Ben Kingsley", "shape": "dot", "size": 10, "title": "Ben Kingsley"}]);
+        edges = new vis.DataSet([{"color": "#0000FF", "from": "Robert Downey Jr.", "title": "Iron Man (2008 film)", "to": "Terrence Howard", "weight": 1}, {"color": "#0000FF", "from": "Robert Downey Jr.", "title": "Iron Man (2008 film)", "to": "Jeff Bridges", "weight": 1}, {"color": "#0000FF", "from": "Robert Downey Jr.", "title": "Iron Man (2008 film)", "to": "Shaun Toub", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Gwyneth Paltrow", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Don Cheadle", "weight": 1}, {"color": "#228B22", "from": "Robert Downey Jr.", "title": "Iron Man 2", "to": "Scarlett Johansson", "weight": 1}, {"color": "#228B22", "from": "Robert Downey Jr.", "title": "Iron Man 2", "to": "Sam Rockwell", "weight": 1}, {"color": "#228B22", "from": "Robert Downey Jr.", "title": "Iron Man 2", "to": "Mickey Rourke", "weight": 1}, {"color": "#228B22", "from": "Robert Downey Jr.", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Guy Pearce", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Rebecca Hall", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "St\u00e9phanie Szostak", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "Robert Downey Jr.", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#0000FF", "from": "Terrence Howard", "title": "Iron Man (2008 film)", "to": "Jeff Bridges", "weight": 1}, {"color": "#0000FF", "from": "Terrence Howard", "title": "Iron Man (2008 film)", "to": "Shaun Toub", "weight": 1}, {"color": "#0000FF", "from": "Terrence Howard", "title": "Iron Man (2008 film)", "to": "Gwyneth Paltrow", "weight": 1}, {"color": "#0000FF", "from": "Jeff Bridges", "title": "Iron Man (2008 film)", "to": "Shaun Toub", "weight": 1}, {"color": "#0000FF", "from": "Jeff Bridges", "title": "Iron Man (2008 film)", "to": "Gwyneth Paltrow", "weight": 1}, {"color": "#0000FF", "from": "Shaun Toub", "title": "Iron Man (2008 film)", "to": "Gwyneth Paltrow", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "Don Cheadle", "weight": 1}, {"color": "#228B22", "from": "Gwyneth Paltrow", "title": "Iron Man 2", "to": "Scarlett Johansson", "weight": 1}, {"color": "#228B22", "from": "Gwyneth Paltrow", "title": "Iron Man 2", "to": "Sam Rockwell", "weight": 1}, {"color": "#228B22", "from": "Gwyneth Paltrow", "title": "Iron Man 2", "to": "Mickey Rourke", "weight": 1}, {"color": "#228B22", "from": "Gwyneth Paltrow", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "Guy Pearce", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "Rebecca Hall", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "St\u00e9phanie Szostak", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "Gwyneth Paltrow", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#228B22", "from": "Don Cheadle", "title": "Iron Man 2", "to": "Scarlett Johansson", "weight": 1}, {"color": "#228B22", "from": "Don Cheadle", "title": "Iron Man 2", "to": "Sam Rockwell", "weight": 1}, {"color": "#228B22", "from": "Don Cheadle", "title": "Iron Man 2", "to": "Mickey Rourke", "weight": 1}, {"color": "#228B22", "from": "Don Cheadle", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "Guy Pearce", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "Rebecca Hall", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "St\u00e9phanie Szostak", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "Don Cheadle", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#228B22", "from": "Scarlett Johansson", "title": "Iron Man 2", "to": "Sam Rockwell", "weight": 1}, {"color": "#228B22", "from": "Scarlett Johansson", "title": "Iron Man 2", "to": "Mickey Rourke", "weight": 1}, {"color": "#228B22", "from": "Scarlett Johansson", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#228B22", "from": "Sam Rockwell", "title": "Iron Man 2", "to": "Mickey Rourke", "weight": 1}, {"color": "#228B22", "from": "Sam Rockwell", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#228B22", "from": "Mickey Rourke", "title": "Iron Man 2", "to": "Samuel L. Jackson", "weight": 1}, {"color": "#FF4500", "from": "Guy Pearce", "title": "Iron Man 3", "to": "Rebecca Hall", "weight": 1}, {"color": "#FF4500", "from": "Guy Pearce", "title": "Iron Man 3", "to": "St\u00e9phanie Szostak", "weight": 1}, {"color": "#FF4500", "from": "Guy Pearce", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "Guy Pearce", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "Guy Pearce", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#FF4500", "from": "Rebecca Hall", "title": "Iron Man 3", "to": "St\u00e9phanie Szostak", "weight": 1}, {"color": "#FF4500", "from": "Rebecca Hall", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "Rebecca Hall", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "Rebecca Hall", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#FF4500", "from": "St\u00e9phanie Szostak", "title": "Iron Man 3", "to": "James Badge Dale", "weight": 1}, {"color": "#FF4500", "from": "St\u00e9phanie Szostak", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "St\u00e9phanie Szostak", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#FF4500", "from": "James Badge Dale", "title": "Iron Man 3", "to": "Jon Favreau", "weight": 1}, {"color": "#FF4500", "from": "James Badge Dale", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}, {"color": "#FF4500", "from": "Jon Favreau", "title": "Iron Man 3", "to": "Ben Kingsley", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
