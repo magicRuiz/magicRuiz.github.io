@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>the past paper classification system</title>
+    <url>/2021/01/19/the-pastpaper-classification-system/</url>
+    <content><![CDATA[<h5 id="A-classification-is-needed"><a href="#A-classification-is-needed" class="headerlink" title="A classification is needed!"></a>A classification is needed!</h5><p>These days I was finishing the end-of-term examination, I needed a lot of past papers in order to make sure that I was ok about those examination. However, the things I have was only some past paper mixed up with all kind of papers in many folders so I decided to make the things easier for me. So I made a classification program. </p>
+<hr>
+<p>Firstly, I would like to state the initial situation that I had about the past papers.</p>
+<p><a href="https://imgchr.com/i/s2jqWF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/19/s2jqWF.png" alt="s2jqWF.png"></a></p>
+<p><a href="https://imgchr.com/i/s2vwfU" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/19/s2vwfU.png" alt="s2vwfU.png"></a></p>
+<p><a href="https://imgchr.com/i/s2vDl4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/19/s2vDl4.png" alt="s2vDl4.png"></a></p>
+<p>This task is not so hard.</p>
+<hr>
+<h5 id="The-coding-part"><a href="#The-coding-part" class="headerlink" title="The coding part"></a>The coding part</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br></pre></td></tr></table></figure>
+
+<p><em>defining, very useful trick</em> </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transferpaper</span><span class="params">(y,t,num)</span>:</span></span><br><span class="line">    targetms=<span class="string">"C:\\Users\\Ruiz\\Desktop\\AS\\chemistry\\chemistry pastpaper\\chemistry pastpaper\\%d%s\\ms"</span>%(y,t)</span><br><span class="line">    targetqp=<span class="string">"C:\\Users\\Ruiz\\Desktop\\AS\\chemistry\\chemistry pastpaper\\chemistry pastpaper\\%d%s\\qp"</span>%(y,t)</span><br><span class="line">    y1=str(y<span class="number">-2000</span>).zfill(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">        targetms1=targetms+<span class="string">'\\9701_%s%s_ms_%d%d.pdf'</span>%(t,y1,num,g)</span><br><span class="line">        targetqp1=targetqp+<span class="string">'\\9701_%s%s_qp_%d%d.pdf'</span>%(t,y1,num,g)</span><br><span class="line">        finalms=<span class="string">"C:\\Users\\Ruiz\\Desktop\\noname\\%d\\%d%d\\%s"</span>%(y,num,g,<span class="string">'ms'</span>)</span><br><span class="line">        finalqp=<span class="string">"C:\\Users\\Ruiz\\Desktop\\noname\\%s\\%d%d\\%s"</span>%(y,num,g,<span class="string">'qp'</span>)</span><br><span class="line">        shutil.copy(targetms1,finalms)</span><br><span class="line">        shutil.copy(targetqp1,finalqp)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#main(final)</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'from which year to 2019?'</span>)</span><br><span class="line">yre=int(input())</span><br><span class="line">print(<span class="string">'which paper exactly?'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (yre,<span class="number">2020</span>):</span><br><span class="line">    os.makedirs(<span class="string">"C:\\Users\\Ruiz\\Desktop\\noname\\%s"</span>%str(i)) </span><br><span class="line">num = int(input())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> range(yre,<span class="number">2020</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">        <span class="keyword">for</span> what <span class="keyword">in</span> [<span class="string">'qp'</span>,<span class="string">'ms'</span>]:</span><br><span class="line">            os.makedirs(<span class="string">"C:\\Users\\Ruiz\\Desktop\\noname\\%d\\%d%d\\%s"</span>%(y,num,i,what))</span><br><span class="line">            </span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> range(yre,<span class="number">2020</span>):</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> [<span class="string">'S'</span>,<span class="string">'W'</span>]:</span><br><span class="line">        transferpaper(y,t,num)</span><br><span class="line">        </span><br><span class="line">print(<span class="string">'the name of the new folder?'</span>)</span><br><span class="line">name = input()</span><br><span class="line"><span class="keyword">if</span> name!= <span class="string">''</span>:</span><br><span class="line">    os.rename(<span class="string">'C:\\Users\\Ruiz\\Desktop\\noname'</span>,<span class="string">'C:\\Users\\Ruiz\\Desktop\\%s'</span>%name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from which year to 2019?</span><br><span class="line">2014</span><br><span class="line">which paper exactly?</span><br><span class="line">1</span><br><span class="line">the name of the new folder?</span><br><span class="line">chemistry mcq</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h5><p>Two tricks here: the ‘%’ and the ‘def’, just as I mentioned before, these trick have their use and I think they are excellent for a user who want to create very neat codes and easy editing  of them.  </p>
+<p>The task is not hard but quite useful. It is my first time to use such a kind of code to make things easier because the work I did before are complicated without the uses of tricks, I can really use this code to save my time now. <em>Great!</em></p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Good Morning America! how much for breakfast?</title>
     <url>/2020/12/06/Good-Morning-America-how-much-for-breakfast/</url>
     <content><![CDATA[<p><strong>This is a small task, or at least in my opinion, a simple one</strong></p>
