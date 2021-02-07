@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>About the Mathematics in My Mind</title>
+    <url>/2021/02/07/mathematics-origin/</url>
+    <content><![CDATA[<h3 id="Hello-mathematics"><a href="#Hello-mathematics" class="headerlink" title="Hello, mathematics!"></a>Hello, mathematics!</h3><h4 id="Why-not-in-a-hurry"><a href="#Why-not-in-a-hurry" class="headerlink" title="Why not in a hurry?"></a>Why not in a hurry?</h4><p>For the beginning of this tag, I would like to share my opinion about this subject. It is really a very strange thing that I opened this tag so late, the programming part should be introduced after the mathematics because what I am doing are mainly about how to use programming to do something about the mathematics, but I decided to open it after I have some questions and the resources to solve it so that the whole process is worth sharing. </p>
+<p>The advanced learning of Further Mathematics made this happened.</p>
+<hr>
+<h4 id="So-for-the-start-of-this-sharing-the-mathematics-in-my-mind-should-be-shown"><a href="#So-for-the-start-of-this-sharing-the-mathematics-in-my-mind-should-be-shown" class="headerlink" title="So, for the start of this sharing, the mathematics in my mind should be shown."></a>So, for the start of this sharing, the mathematics in my mind should be shown.</h4><p>Mathematics is a subject with wide uses and it really made a big difference to the whole world. I totally agree with this idea since I knew more about the connection between integration and the mechanics in my junior high. I love mathematics because I believe that this subject has an infinite possibility and I hope myself can push our knowledge closer to the truth. In my opinion the studies in the mathematics are just like a process of denying what we have known and create a brand-new system that can be explained in a different way. For example, before the middle school, we called the square root of -1 ‘undefined’ in order to show that it is different to get this number or to use it. But now I can call it ‘i’ as a new part of the number system. In physics, the definition of the infinitely small make the uses of integration become possible, the impact is definitely vital. I was impressed by how close it is to the ‘impossible’ but how beautifully it is defined. Overall, the renovation in mathematics eliminates the impossible things and at the same time, creating new impossible things. That is why I am looking forward to explore it further.</p>
+<hr>
+<h4 id="That’s-all-for-now…maybe"><a href="#That’s-all-for-now…maybe" class="headerlink" title="That’s all for now…maybe?"></a>That’s all for now…maybe?</h4><p>I found this way to understand what mathematics learn and how exactly it is attracting by hearing from my teachers in all stages who always say that what were told to us previously are only few parts of the truth. So after having a dense learning experience lately, I just wrote it down.</p>
+<p>Of course this opinion will change, I am sure that the change won’t take me so long.</p>
+<p><em>So…here we go!</em></p>
+]]></content>
+      <tags>
+        <tag>mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>The Past Paper Classification System</title>
     <url>/2021/01/19/the-pastpaper-classification-system/</url>
-    <content><![CDATA[<h5 id="A-classification-is-needed"><a href="#A-classification-is-needed" class="headerlink" title="A classification is needed!"></a>A classification is needed!</h5><p>These days I was finishing the end-of-term examination, I needed a lot of past papers in order to make sure that I was ok about those examination. However, the things I have was only some past paper mixed up with all kind of papers in many folders so I decided to make the things easier for me. So I made a classification program. </p>
+    <content><![CDATA[<h5 id="A-classification-is-needed"><a href="#A-classification-is-needed" class="headerlink" title="A classification is needed!"></a>A classification is needed!</h5><p>These days I was having the end-of-term examination, I needed a lot of past papers in order to make sure that I was ok about those examination. However, the things I have was only some past paper mixed up with all kind of papers in many folders so I decided to make the things easier for me. So I made a classification program. </p>
 <hr>
 <p>Firstly, I would like to state the initial situation that I had about the past papers.</p>
 <p><a href="https://imgchr.com/i/s2jqWF" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/19/s2jqWF.png" alt="s2jqWF.png"></a></p>
