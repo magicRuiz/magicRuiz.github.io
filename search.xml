@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>The NBA prediction using decision tree in Python</title>
+    <url>/2021/03/13/The-NBA-prediction-using-decision-tree-in-Python/</url>
+    <content><![CDATA[<h4 id="A-more-complicated-set-of-data"><a href="#A-more-complicated-set-of-data" class="headerlink" title="A more complicated set of data!"></a>A more complicated set of data!</h4><p>The Iris Flower before is a very simple set of data, so I found a more complicated data, which is about the NBA competition in 2014. The data can be obtained on this website: <a href="http://www.basketball-reference.com/leagues/NBA_2014_games.html" target="_blank" rel="noopener">http://www.basketball-reference.com/leagues/NBA_2014_games.html</a>. </p>
+<p>The basic things about the decision tree was presented in the previous post.</p>
+<p>So let’s start directly!</p>
+<hr>
+<h4 id="Basic-ideas-to-achieve-this"><a href="#Basic-ideas-to-achieve-this" class="headerlink" title="Basic ideas to achieve this"></a>Basic ideas to achieve this</h4><p>The columns in the csv file looks like this(10 columns in total):</p>
+<p><em>Date</em>    </p>
+<p>​    <em>Start(ET)</em>   </p>
+<p><strong><em>Visitor Team</em></strong>    </p>
+<p>​    <strong><em>VisitorPts</em></strong>  </p>
+<p><strong><em>Home Team</em></strong>   </p>
+<p>​    <strong><em>HomePts</em></strong> </p>
+<p><em>Score Type</em>  </p>
+<p><em>OT?</em> </p>
+<p><em>Attend</em>  </p>
+<p><em>Notes</em></p>
+<p>The bolded part is what I thought was matter. </p>
+<p>I didn’t watch the NBA games a lot, I prefer the football games, but according to my friend Han’s information, the Visitor Team and the Home Team will have a trend when competing: the Home Team will have a larger probability to win.</p>
+<p>So I made a few parameters (<em>The ideas of making the parameters starts when I was learning Physics and Statistics, attention here, very useful!</em>) : </p>
+<p>The mark difference of each games(markdifference)</p>
+<p>The properties of the team when it was a home team(heasefeature),or how easy it was to win the game when the team was the home team</p>
+<p>The properties of the team when it was a visitor team(veasefeature),or how easy it was to win the game when the team was the visitor team</p>
+<p>The first parameter can obtain the next two parameters,details are in the code.</p>
+<p>So after getting the basic parameter, the corresponding  results goes like’ visitor win’ or ‘home win’. The training can go by entering the parameters and the results arrays.</p>
+<p>There are 1316 games’ data recorded here, I took the 1000 games to train and 316 games rest to do the test.</p>
+<hr>
+<h4 id="Programming-part"><a href="#Programming-part" class="headerlink" title="Programming part"></a>Programming part</h4><p>Import first.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br></pre></td></tr></table></figure>
+
+<p>Then obtain the data from the csv file.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path = <span class="string">'leagues_NBA_2014_games.csv'</span></span><br><span class="line">dataset = pd.read_csv(path, parse_dates=[<span class="string">'Date'</span>])</span><br><span class="line">dataset.columns = [</span><br><span class="line">    <span class="string">'Date'</span>, <span class="string">'Start(ET)'</span>, <span class="string">'Visitor Team'</span>, <span class="string">'VisitorPts'</span>, <span class="string">'Home Team'</span>, <span class="string">'HomePts'</span>,</span><br><span class="line">    <span class="string">'Score Type'</span>, <span class="string">'OT?'</span>, <span class="string">'Attend'</span>, <span class="string">'Notes'</span></span><br><span class="line">]</span><br><span class="line">dataset</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgtu.com/i/6dGHnP" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6dGHnP.png" alt="6dGHnP.png"></a></p>
+<p>The markdifference parameter</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">markdifference=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1316</span>):</span><br><span class="line">    Homenum=int(dataset[<span class="string">'HomePts'</span>][i])</span><br><span class="line">    Visitornum=int(dataset[<span class="string">'VisitorPts'</span>][i])</span><br><span class="line">    temp=(Homenum-Visitornum)/((Homenum+Visitornum))</span><br><span class="line">    markdifference.append(temp)</span><br><span class="line">markdifference=np.array(markdifference)</span><br><span class="line">markdifference</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array([-0.06      ,  0.01041667,  0.0776699 , ..., -0.07177033,</span><br><span class="line">        0.06481481, -0.02197802])</span><br></pre></td></tr></table></figure>
+
+<p>The veasefeature,heasefeature parameter</p>
+<p>Note here: the vease and the hease variables are the <strong>teams’</strong> properties. For each game, the properties of each game which is the  veasefeature, heasefeature parameters is just the redistribution of the data according to what team played as the home team and what team played as the visitor team. So just put the vease of the team which was the visitor team and put the hease of the team which was the home team. </p>
+<p>The vease and the hease comes from the markdiffrerences of the teams in each games. </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">vease=&#123;&#125;</span><br><span class="line">hease=&#123;&#125;</span><br><span class="line">veasefeature=[]</span><br><span class="line">heasefeature=[]</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> Teams:</span><br><span class="line">    vease[j]=<span class="number">0</span></span><br><span class="line">    hease[j]=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> Teams:</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1000</span>): </span><br><span class="line">        <span class="keyword">if</span> i == dataset[<span class="string">'Home Team'</span>][k]:</span><br><span class="line">            hease[i]=hease[i]+markdifference[k]</span><br><span class="line"><span class="comment">#for the home teams, the more postive the mark differences are, the easier they won as a home team, so add the markdifference up in order to stands for the ease</span></span><br><span class="line">        <span class="keyword">if</span> i==dataset[<span class="string">'Visitor Team'</span>][k]:</span><br><span class="line">            vease[i]=vease[i]-markdifference[k]</span><br><span class="line"><span class="comment">#for the visitor teams, the things goes reverse, the negative markdifferences stand for the ease of the visitor team winning, so minus the markdifference in order to calculate the ease for each team</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    veasefeature.append(vease[dataset[<span class="string">'Visitor Team'</span>][k]])</span><br><span class="line">    heasefeature.append(hease[dataset[<span class="string">'Home Team'</span>][k]])</span><br></pre></td></tr></table></figure>
+
+<p>some defs:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">featruemakeing</span><span class="params">(h,v)</span>:</span></span><br><span class="line">    feature=[hease[h],vease[v]]</span><br><span class="line">    feature=np.array(feature)</span><br><span class="line">    <span class="keyword">return</span> feature</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">featuretrainget</span><span class="params">(i)</span>:</span></span><br><span class="line">    temp=[]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">        temp.append(i[k])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> temp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">featurefinal=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    vf=featuretrainget(veasefeature)[i]</span><br><span class="line">    hf=featuretrainget(heasefeature)[i]</span><br><span class="line">    featurefinal.append([hf,vf])</span><br><span class="line">featurefinal=np.array(featurefinal)</span><br><span class="line"></span><br><span class="line">print(featurefinal)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[[ 0.93140748 -0.77666025]</span><br><span class="line"> [ 0.21078442  0.75953224]</span><br><span class="line"> [ 2.18608326 -1.239629  ]</span><br><span class="line"> ...</span><br><span class="line"> [ 0.64651469  0.35392433]</span><br><span class="line"> [-1.10795178 -0.47935976]</span><br><span class="line"> [ 0.05795612  0.44835829]]</span><br></pre></td></tr></table></figure>
+
+<p>training</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ans=np.array(featuretrainget(markdifference))</span><br><span class="line">result=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    result.append(<span class="string">''</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(ans)):</span><br><span class="line">    <span class="keyword">if</span> ans[i]&gt;<span class="number">0</span>:</span><br><span class="line">        result[i]=<span class="string">'home win'</span></span><br><span class="line">    <span class="keyword">if</span> ans[i]&lt;<span class="number">0</span>:</span><br><span class="line">        result[i]=<span class="string">'visitor win'</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(featurefinal,result)</span><br></pre></td></tr></table></figure>
+
+<p>testing</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">r=<span class="number">0</span></span><br><span class="line">n=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>,<span class="number">1316</span>):</span><br><span class="line">    n = n+<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> clf.predict([featruemakeing(Homet[i],Visitort[i])])==ansresult[i]:</span><br><span class="line">        print(<span class="string">'1'</span>)</span><br><span class="line">        r = r+<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'0'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>output was so long,so just calculate the rate directly</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(r/n)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0.6645569620253164</span><br></pre></td></tr></table></figure>
+
+<p>that was pretty good, very high!</p>
+<hr>
+<p>My description may be not very clear as I am not an native speaker or an expert in doing that, I think that looking at my code is also okay. What I mean is that what is really matter is the basic thoughts and the codes.</p>
+<h4 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h4><p>Firstly, having an idea</p>
+<p>Then, do it!</p>
+<p> By the way, the ideas that I had contains some relative mathematics ideas like making up the parameters.(I think this is a very important core idea in the statistics and Physics.) So this post is reasonable to be put under the mathematics tag.</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Decision Tree</title>
     <url>/2021/03/13/Python-Decision-Tree/</url>
     <content><![CDATA[<h4 id="This-is-the-method-to-predict-the-future"><a href="#This-is-the-method-to-predict-the-future" class="headerlink" title="This is the method to predict the future!"></a>This is the method to predict the future!</h4><hr>
@@ -12,6 +87,8 @@
 <hr>
 <p>To use the decision tree, I did some basic practice first, which was the classic data about ‘Iris Flower’.</p>
 <p>Three kinds of Iris flower here, they make differences by different kind of data of their sepals and petals.  And I need to train the decision tree to make it get the rule inside.</p>
+<p>The basic idea here is showing the data, then showing the corresponding results, they are all put in the training function called clf.fit(<strong><em>The data,The kind of flower</em></strong>), the things in the brackets are all arrays, which means the first object in ‘<strong><em>The data</em></strong>‘ is the data of the kind shown by the first object in ‘<strong><em>The kind of flower</em></strong>‘. The length of the two arrays are exactly the same, of course. </p>
+<p>The program encapsulated will do the rest and get the rules, then using a prediction function called clf.predict(<strong><em>the test data</em></strong>) to predict the actual kind of flower.(The’ <strong><em>test data</em></strong> ‘should be in the same form comparing to the objects in the ‘<strong><em>The data</em></strong>‘ array) . Everything must be in order so it can make sense to the program.</p>
 <h4 id="Programming-starts"><a href="#Programming-starts" class="headerlink" title="Programming starts!"></a>Programming starts!</h4><hr>
 <p>Firstly , import something</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier <span class="comment">#this is the decision tree part in the sklearn package</span></span><br></pre></td></tr></table></figure>
@@ -38,6 +115,7 @@
 <p>That rate will change from time to time, but it will never be low as this data is quite straight forward.</p>
 <hr>
 <h4 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h4><p>This is not so hard to train, <em>for more complicated cases, the mathematical method may help.</em></p>
+<p>This program is based on the idea of senior Chen Siyu, he also gave me a lot of help in the process of programming, thank you!</p>
 ]]></content>
       <tags>
         <tag>Python</tag>
