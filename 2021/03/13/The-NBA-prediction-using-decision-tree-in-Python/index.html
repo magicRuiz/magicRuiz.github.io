@@ -88,7 +88,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.ax1x.com/2021/03/13/6dGHnP.png">
 <meta property="article:published_time" content="2021-03-13T03:55:45.000Z">
-<meta property="article:modified_time" content="2021-03-13T05:56:57.570Z">
+<meta property="article:modified_time" content="2021-03-13T06:35:27.458Z">
 <meta property="article:author" content="magic Ruiz">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Mathematics">
@@ -374,6 +374,7 @@
       
         <h4 id="A-more-complicated-set-of-data"><a href="#A-more-complicated-set-of-data" class="headerlink" title="A more complicated set of data!"></a>A more complicated set of data!</h4><p>The Iris Flower before is a very simple set of data, so I found a more complicated data, which is about the NBA competition in 2014. The data can be obtained on this website: <a href="http://www.basketball-reference.com/leagues/NBA_2014_games.html" target="_blank" rel="noopener">http://www.basketball-reference.com/leagues/NBA_2014_games.html</a>. </p>
 <p>The basic things about the decision tree was presented in the previous post.</p>
+<p>So what I was doing was using the information before to predict the future games’ result.</p>
 <p>So let’s start directly!</p>
 <hr>
 <h4 id="Basic-ideas-to-achieve-this"><a href="#Basic-ideas-to-achieve-this" class="headerlink" title="Basic ideas to achieve this"></a>Basic ideas to achieve this</h4><p>The columns in the csv file looks like this(10 columns in total):</p>
@@ -417,17 +418,23 @@
 <p>some defs:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">featruemakeing</span><span class="params">(h,v)</span>:</span></span><br><span class="line">    feature=[hease[h],vease[v]]</span><br><span class="line">    feature=np.array(feature)</span><br><span class="line">    <span class="keyword">return</span> feature</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">featuretrainget</span><span class="params">(i)</span>:</span></span><br><span class="line">    temp=[]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">        temp.append(i[k])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> temp</span><br></pre></td></tr></table></figure>
 
+<p>The ‘<strong><em>featurefinal</em></strong>‘ is an summary of the data, because the form of the data given for training must be an array.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">featurefinal=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    vf=featuretrainget(veasefeature)[i]</span><br><span class="line">    hf=featuretrainget(heasefeature)[i]</span><br><span class="line">    featurefinal.append([hf,vf])</span><br><span class="line">featurefinal=np.array(featurefinal)</span><br><span class="line"></span><br><span class="line">print(featurefinal)</span><br></pre></td></tr></table></figure>
+
+
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[[ 0.93140748 -0.77666025]</span><br><span class="line"> [ 0.21078442  0.75953224]</span><br><span class="line"> [ 2.18608326 -1.239629  ]</span><br><span class="line"> ...</span><br><span class="line"> [ 0.64651469  0.35392433]</span><br><span class="line"> [-1.10795178 -0.47935976]</span><br><span class="line"> [ 0.05795612  0.44835829]]</span><br></pre></td></tr></table></figure>
 
-<p>training</p>
+
+
+<p>Training, the result given corresponding to the ‘<strong><em>featurefinal</em></strong>‘ is given by a simple deduction of the value of the markdifference(postive markdifference is home team winning,vice versa).</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ans=np.array(featuretrainget(markdifference))</span><br><span class="line">result=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    result.append(<span class="string">''</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(ans)):</span><br><span class="line">    <span class="keyword">if</span> ans[i]&gt;<span class="number">0</span>:</span><br><span class="line">        result[i]=<span class="string">'home win'</span></span><br><span class="line">    <span class="keyword">if</span> ans[i]&lt;<span class="number">0</span>:</span><br><span class="line">        result[i]=<span class="string">'visitor win'</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(featurefinal,result)</span><br></pre></td></tr></table></figure>
 
-<p>testing</p>
+<p>Testing, the result output was ‘home win or visitor win’, I could make the program output the possible markdifference, but this program can only output the ‘type’ other that the actual mark.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">r=<span class="number">0</span></span><br><span class="line">n=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>,<span class="number">1316</span>):</span><br><span class="line">    n = n+<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> clf.predict([featruemakeing(Homet[i],Visitort[i])])==ansresult[i]:</span><br><span class="line">        print(<span class="string">'1'</span>)</span><br><span class="line">        r = r+<span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">'0'</span>)</span><br></pre></td></tr></table></figure>
 
-<p>output was so long,so just calculate the rate directly</p>
+<p>output was so long with the ‘1’s and ‘0’s , ‘1’ was the right prediction of the games,vice versa. </p>
+<p>Just calculate the rate of successful predictions directly.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(r/n)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.6645569620253164</span><br></pre></td></tr></table></figure>
@@ -435,9 +442,11 @@
 <p>that was pretty good, very high!</p>
 <hr>
 <p>My description may be not very clear as I am not an native speaker or an expert in doing that, I think that looking at my code is also okay. What I mean is that what is really matter is the basic thoughts and the codes.</p>
-<h4 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h4><p>Firstly, having an idea</p>
+<p>So, we can have the prediction for the next 316 games, well done!</p>
+<h4 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h4><p>Firstly, having an idea, clearly.</p>
 <p>Then, do it!</p>
 <p> By the way, the ideas that I had contains some relative mathematics ideas like making up the parameters.(I think this is a very important core idea in the statistics and Physics.) So this post is reasonable to be put under the mathematics tag.</p>
+<p>This program is based on the idea of senior Chen Siyu, he also gave me a lot of help in the process of programming, special thanks to him!</p>
 
       
     </div>
