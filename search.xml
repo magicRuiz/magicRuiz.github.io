@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>About the uses of GeoGebra(polar coordinate)</title>
+    <url>/2021/03/13/About-the-uses-of-GeoGebra-polar-coordinate/</url>
+    <content><![CDATA[<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>The GeoGebra is a main mathematics tool that are always used by me, I think it really helped in the process of making the graph of the 3-dimentional vectors or the planes, for who haven’t used that, I highly recommend. </p>
+<p>However, some problems are found by me, which is about the polar coordinate. When I was trying to find some ways to draw a polar function, I could not enter the equation directly so I must use a function in GeoGebra called’ Curve()’ , it just goes like this.</p>
+<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313094811636.png" alt="image-20210313094811636"></p>
+<p>This is the way to draw the diagram r=cos(θ), the function is acting as what we do to when trying to transfer the normal function to the polar function. This method was from the Baidu, I thought this is a pretty good solution to the function. But there is a problem found by me lately. </p>
+<p>The problem turns out when I was trying to draw the diagram like r=2+4cos(θ) maybe you can see the problem through the way that I entered the equations. </p>
+<h4 id="Here-is-the-problem"><a href="#Here-is-the-problem" class="headerlink" title="Here is the problem!"></a>Here is the problem!</h4><p>The r stands for the distance that the point on the curve from the origin O, <strong>it cannot be a negative value!</strong> So if I just enter the equation like this, the negative ‘distance’ will also be presented on the diagram! </p>
+<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313094954844.png" alt="image-20210313094954844"></p>
+<p>So the small circle in side the big one is the extra part whose r is negative value, the true diagram goes like this:</p>
+<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313095012652.png" alt="image-20210313095012652"></p>
+<p>Just remove the negative part.</p>
+<p>If we look at the diagram of the y=2+4cos(x), the part beneath the X-axis is what we need to remove.</p>
+<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313095027584.png" alt="image-20210313095027584"></p>
+<p>So my method of having a right diagram is having two curve function of the positive part only in order to remove the negative part.</p>
+<p><img src="file:///C:/Users/Ruiz/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
+<h4 id="Overall-the-problem-is-the-difference-between-my-command-to-the-computer-and-the-actual-definition-of-what-I-need"><a href="#Overall-the-problem-is-the-difference-between-my-command-to-the-computer-and-the-actual-definition-of-what-I-need" class="headerlink" title="Overall, the problem is the difference between my command to the computer and the actual definition of what I need."></a>Overall, the problem is the difference between my command to the computer and the actual definition of what I need.</h4>]]></content>
+      <tags>
+        <tag>mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About the Mathematics in My Mind</title>
     <url>/2021/02/07/mathematics-origin/</url>
     <content><![CDATA[<h3 id="Hello-mathematics"><a href="#Hello-mathematics" class="headerlink" title="Hello, mathematics!"></a>Hello, mathematics!</h3><h4 id="Why-not-in-a-hurry"><a href="#Why-not-in-a-hurry" class="headerlink" title="Why not in a hurry?"></a>Why not in a hurry?</h4><p>For the beginning of this tag, I would like to share my opinion about this subject. It is really a very strange thing that I opened this tag so late, the programming part should be introduced after the mathematics because what I am doing are mainly about how to use programming to do something about the mathematics, but I decided to open it after I have some questions and the resources to solve it so that the whole process is worth sharing. </p>
@@ -355,7 +377,7 @@
     <title>Data Processing Problems(something about eval)</title>
     <url>/2020/05/25/Python2/</url>
     <content><![CDATA[<p>​        <strong>The story started when a problem like this is sent to me.</strong></p>
-<p><img src="https://s1.ax1x.com/2020/05/25/tCJIIS.png" alt="tCJIIS.png"></p>
+<p><img src="C:%5CUsers%5CRuiz%5CDesktop%5CtCJIIS.png" alt="tCJIIS"></p>
 <hr>
 <p>Actually it was relatively simple for me, but soon I found there were something that brought me some questions:<br><img src="https://s1.ax1x.com/2020/05/25/tCJKuq.png" alt="tCJKuq.png"></p>
 <p>The question asked me to make the function be exactly the same with the example, the input of data must be completed in a pair of brackets with all data in it , which meant I need to work out a way to make the data separated by some special methods that I have never learnt before, I could only make a function like this at first, which was not that perfect:</p>
@@ -402,7 +424,7 @@
     <url>/2020/05/03/Python1/</url>
     <content><![CDATA[<h2 id="Where-we-started"><a href="#Where-we-started" class="headerlink" title="Where we started"></a>Where we started</h2><p>This is my first time to use python, which is a lovely experience.  </p>
 <p>Simple but vital :</p>
-<p><img src="https://s1.ax1x.com/2020/05/03/YpGFH0.png" alt="YpGFH0.png"></p>
+<p><img src="C:%5CUsers%5CRuiz%5CDesktop%5CYpGFH0.png" alt="YpGFH0"></p>
 <p><strong>KEEP IT UP!</strong></p>
 ]]></content>
       <tags>
