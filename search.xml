@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python Decision Tree</title>
+    <url>/2021/03/13/Python-Decision-Tree/</url>
+    <content><![CDATA[<h4 id="This-is-the-method-to-predict-the-future"><a href="#This-is-the-method-to-predict-the-future" class="headerlink" title="This is the method to predict the future!"></a>This is the method to predict the future!</h4><hr>
+<p><strong>Quite complicated definition of the decision tree:</strong></p>
+<p>Decision Tree is a Decision analysis method to obtain the probability that the expected value of NPV is greater than or equal to zero, evaluate the project risk and judge its feasibility on the basis of the known probability of occurrence of various situations by forming a Decision Tree. It is a graphical method of intuitive use of probability analysis.</p>
+<hr>
+<p>The definition above is not a very understandable thing for me to read, what I can tell is that when we are using the decision tree in python, the decision tree is used in a encapsulated program, what I need to do is make the data used to train it readable for the program. This means that I only need to have the data collected and preprocessed so that the program can use it better. So this is my mission at this step. About the basic principle of the decision tree, well… , I know it , but not so much, and it will be very hard for me to state it here. But a simpler way of telling the decision tree is needed to state(and it is concluded by me):</p>
+<h4 id="The-decision-tree-is-a-large-amount-of-“if”-nested-together"><a href="#The-decision-tree-is-a-large-amount-of-“if”-nested-together" class="headerlink" title="The decision tree is a large amount of “if” nested together."></a><em>The decision tree is a large amount of “if” nested together.</em></h4><p><em>And I would like to call it a rule finding process.</em></p>
+<hr>
+<p>To use the decision tree, I did some basic practice first, which was the classic data about ‘Iris Flower’.</p>
+<p>Three kinds of Iris flower here, they make differences by different kind of data of their sepals and petals.  And I need to train the decision tree to make it get the rule inside.</p>
+<h4 id="Programming-starts"><a href="#Programming-starts" class="headerlink" title="Programming starts!"></a>Programming starts!</h4><hr>
+<p>Firstly , import something</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier <span class="comment">#this is the decision tree part in the sklearn package</span></span><br></pre></td></tr></table></figure>
+
+<p>Then the data is put in the program.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">"./irisFlowers.csv"</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">SEPAL_LENGTH	SEPAL_WIDTH	PETAL_LENGTH	PETAL_WIDTH	Class</span><br><span class="line">0	5.1	        3.5	        1.4	            0.2	        setosa</span><br><span class="line">1	4.9	        3.0	        1.4	            0.2	        setosa</span><br><span class="line">2	4.7	        3.2	        1.3	            0.2	        setosa</span><br><span class="line">3	4.6	        3.1	        1.5	            0.2	        setosa</span><br><span class="line">4	5.0	        3.6	        1.4          	0.2	        setosa</span><br><span class="line">...	...			...			...				...			...</span><br><span class="line">145	6.7			3.0			5.2				2.3			virginica</span><br><span class="line">146	6.3			2.5			5.0				1.9			virginica</span><br><span class="line">147	6.5			3.0			5.2			    2.0			virginica</span><br><span class="line">148	6.2			3.4			5.4			    2.3			virginica</span><br><span class="line">149	5.9			3.0			5.1			    1.8			virginica</span><br><span class="line">150 rows × 5 columns</span><br></pre></td></tr></table></figure>
+
+<p>Then let’s have an overview of the distribution:</p>
+<p>![download](C:\Users\Ruiz\Desktop\blog\public\pictures inside\decision tree\download.png)</p>
+<p>70% of The data is used to train the decision tree and the left 30% is going to be used to test the decision tree made. </p>
+<p>So preprocess the data.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lenandwid=[]</span><br><span class="line">kindof=[]</span><br><span class="line">testlenandwid=[]</span><br><span class="line">testkindof=[]</span><br><span class="line">df = df.sample(frac=<span class="number">1</span>).reset_index(drop=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">105</span>):</span><br><span class="line">    temp=[]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">4</span>):        </span><br><span class="line">        temp.append(df.iloc[i][k])</span><br><span class="line">    lenandwid.append(temp)</span><br><span class="line">    kindof.append(df.iloc[i][<span class="number">4</span>])</span><br><span class="line">lenandwid=np.array(lenandwid)</span><br><span class="line">kindof=np.array(kindof)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">105</span>,<span class="number">150</span>):</span><br><span class="line">    temp=[]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">4</span>):        </span><br><span class="line">        temp.append(df.iloc[i][k])</span><br><span class="line">    testlenandwid.append(temp)</span><br><span class="line">    testkindof.append(df.iloc[i][<span class="number">4</span>])</span><br><span class="line">testlenandwid=np.array(testlenandwid)</span><br><span class="line">testkindof=np.array(testkindof)</span><br></pre></td></tr></table></figure>
+
+<p>The training part.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(lenandwid,kindof)</span><br></pre></td></tr></table></figure>
+
+<p>The testing part.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rightorwrong=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(testlenandwid)):</span><br><span class="line">    predict= clf.predict([testlenandwid[i]])</span><br><span class="line">    right = testkindof[i]</span><br><span class="line">    <span class="keyword">if</span> predict == right:</span><br><span class="line">        rightorwrong.append(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rightorwrong.append(<span class="number">0</span>)</span><br><span class="line">print(rightorwrong)</span><br><span class="line">print(len(rightorwrong))</span><br><span class="line">n =<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> rightorwrong:</span><br><span class="line">    <span class="keyword">if</span> k ==<span class="number">1</span> :</span><br><span class="line">        n=n+<span class="number">1</span></span><br><span class="line">prob=n/len(rightorwrong)</span><br><span class="line">print(prob)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</span><br><span class="line">45</span><br><span class="line">0.9555555555555556</span><br></pre></td></tr></table></figure>
+
+<p>That rate will change from time to time, but it will never be low as this data is quite straight forward.</p>
+<hr>
+<h4 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h4><p>This is not so hard to train, <em>for more complicated cases, the mathematical method may help.</em></p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About the uses of GeoGebra(polar coordinate)</title>
     <url>/2021/03/13/About-the-uses-of-GeoGebra-polar-coordinate/</url>
     <content><![CDATA[<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>The GeoGebra is a main mathematics tool that are always used by me, I think it really helped in the process of making the graph of the 3-dimentional vectors or the planes, for who haven’t used that, I highly recommend. </p>
 <p>However, some problems are found by me, which is about the polar coordinate. When I was trying to find some ways to draw a polar function, I could not enter the equation directly so I must use a function in GeoGebra called’ Curve()’ , it just goes like this.</p>
-<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313094811636.png" alt="image-20210313094811636"></p>
+<p><a href="https://imgtu.com/i/6de3t0" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6de3t0.png" alt="6de3t0.png"></a></p>
 <p>This is the way to draw the diagram r=cos(θ), the function is acting as what we do to when trying to transfer the normal function to the polar function. This method was from the Baidu, I thought this is a pretty good solution to the function. But there is a problem found by me lately. </p>
 <p>The problem turns out when I was trying to draw the diagram like r=2+4cos(θ) maybe you can see the problem through the way that I entered the equations. </p>
 <h4 id="Here-is-the-problem"><a href="#Here-is-the-problem" class="headerlink" title="Here is the problem!"></a>Here is the problem!</h4><p>The r stands for the distance that the point on the curve from the origin O, <strong>it cannot be a negative value!</strong> So if I just enter the equation like this, the negative ‘distance’ will also be presented on the diagram! </p>
-<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313094954844.png" alt="image-20210313094954844"></p>
+<p><a href="https://imgtu.com/i/6dew7R" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6dew7R.png" alt="6dew7R.png"></a></p>
 <p>So the small circle in side the big one is the extra part whose r is negative value, the true diagram goes like this:</p>
-<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313095012652.png" alt="image-20210313095012652"></p>
+<p><a href="https://imgtu.com/i/6deBA1" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6deBA1.png" alt="6deBA1.png"></a></p>
 <p>Just remove the negative part.</p>
 <p>If we look at the diagram of the y=2+4cos(x), the part beneath the X-axis is what we need to remove.</p>
-<p><img src="C:%5CUsers%5CRuiz%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210313095027584.png" alt="image-20210313095027584"></p>
+<p><a href="https://imgtu.com/i/6de61O" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6de61O.png" alt="6de61O.png"></a></p>
 <p>So my method of having a right diagram is having two curve function of the positive part only in order to remove the negative part.</p>
-<p><img src="file:///C:/Users/Ruiz/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p>
+<p><a href="https://imgtu.com/i/6dmkDJ" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6dmkDJ.png" alt="6dmkDJ.png"></a></p>
 <h4 id="Overall-the-problem-is-the-difference-between-my-command-to-the-computer-and-the-actual-definition-of-what-I-need"><a href="#Overall-the-problem-is-the-difference-between-my-command-to-the-computer-and-the-actual-definition-of-what-I-need" class="headerlink" title="Overall, the problem is the difference between my command to the computer and the actual definition of what I need."></a>Overall, the problem is the difference between my command to the computer and the actual definition of what I need.</h4>]]></content>
       <tags>
-        <tag>mathematics</tag>
+        <tag>Mathematics</tag>
       </tags>
   </entry>
   <entry>
@@ -35,7 +79,7 @@
 <p><em>So…here we go!</em></p>
 ]]></content>
       <tags>
-        <tag>mathematics</tag>
+        <tag>Mathematics</tag>
       </tags>
   </entry>
   <entry>
@@ -377,7 +421,7 @@
     <title>Data Processing Problems(something about eval)</title>
     <url>/2020/05/25/Python2/</url>
     <content><![CDATA[<p>​        <strong>The story started when a problem like this is sent to me.</strong></p>
-<p><img src="C:%5CUsers%5CRuiz%5CDesktop%5CtCJIIS.png" alt="tCJIIS"></p>
+<p><a href="https://imgtu.com/i/6deQ7n" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6deQ7n.png" alt="6deQ7n.png"></a></p>
 <hr>
 <p>Actually it was relatively simple for me, but soon I found there were something that brought me some questions:<br><img src="https://s1.ax1x.com/2020/05/25/tCJKuq.png" alt="tCJKuq.png"></p>
 <p>The question asked me to make the function be exactly the same with the example, the input of data must be completed in a pair of brackets with all data in it , which meant I need to work out a way to make the data separated by some special methods that I have never learnt before, I could only make a function like this at first, which was not that perfect:</p>
@@ -424,7 +468,7 @@
     <url>/2020/05/03/Python1/</url>
     <content><![CDATA[<h2 id="Where-we-started"><a href="#Where-we-started" class="headerlink" title="Where we started"></a>Where we started</h2><p>This is my first time to use python, which is a lovely experience.  </p>
 <p>Simple but vital :</p>
-<p><img src="C:%5CUsers%5CRuiz%5CDesktop%5CYpGFH0.png" alt="YpGFH0"></p>
+<p>​    <a href="https://imgtu.com/i/6dZoy4" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/03/13/6dZoy4.png" alt="6dZoy4.png"></a></p>
 <p><strong>KEEP IT UP!</strong></p>
 ]]></content>
       <tags>
