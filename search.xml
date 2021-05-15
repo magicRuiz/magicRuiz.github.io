@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>An Attempt on Graph</title>
+    <url>/2021/05/15/Graph-theory1/</url>
+    <content><![CDATA[<p>The graph theory is very interesting, I met the graph before, when I tried to make a collection about the cast of the movie: “Iron man” . The detailed information is in the blog before: <a href="https://magicruiz.github.io/2020/11/28/the-Iron-Man-cast/#more" target="_blank" rel="noopener">The Iron Man Cast</a>.</p>
+<h4 id="First-things-first-the-introduction-about-the-puzzle"><a href="#First-things-first-the-introduction-about-the-puzzle" class="headerlink" title="First things first, the introduction about the puzzle:"></a>First things first, the introduction about the puzzle:</h4><p><a href="https://imgtu.com/i/gcSkWR" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/05/15/gcSkWR.png" alt="gcSkWR.png"></a></p>
+<p>the problem here is when I tried to make the connections, there are always one line that cannot be connected, the reason is that other lines are blocking it. This is one of the situations:</p>
+<p><a href="https://imgtu.com/i/gcSYOf" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/05/15/gcSYOf.png" alt="gcSYOf.png"></a></p>
+<p>The yellow one cannot connect to another green object!</p>
+<p>It is a very obvious fact that there is no way to finish the task, the problem is: how to prove that this is impossible?</p>
+<h4 id="The-proof-from-Ruiz"><a href="#The-proof-from-Ruiz" class="headerlink" title="The proof from Ruiz:"></a>The proof from Ruiz:</h4><p>I realized that I need to make the graph easier, because the only problem is about the line blocked. So I made a change like this: </p>
+<p><a href="https://imgtu.com/i/gcpt3R" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/05/15/gcpt3R.png" alt="gcpt3R.png"></a></p>
+<p>The red circle is blocked, the central square is not available for it, so the connection cannot be finished.</p>
+<p>The proof stopped here, because I cannot say more about it, <em>impossible is impossible.</em></p>
+<p>But obviously it is not a very satisfying proof, it didn’t suggest a very common theory for the puzzles like this. WELL, I cannot do that up to now because I am only a starter in the Graph. </p>
+<h4 id="The-proof-from-3Blue1Brown"><a href="#The-proof-from-3Blue1Brown" class="headerlink" title="The proof from 3Blue1Brown:"></a>The proof from 3Blue1Brown:</h4><p>3Blue1Brown is really good at dealing with such a kind of puzzle, I hope that my English ability can have that level to tell something about mathematics like him, because his way of introducing mathematics is really acceptable and wise. </p>
+<p>Overall the proof is about the difference that the lines added will make. The detailed information is all in his video. </p>
+<hr>
+<p>The end, I will find a way to prove this eventually, please wait, I need to find out the ways of proving systematically. </p>
+<p>See you later!</p>
+]]></content>
+      <tags>
+        <tag>mathematics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>The NBA prediction using decision tree in Python</title>
     <url>/2021/03/13/The-NBA-prediction-using-decision-tree-in-Python/</url>
     <content><![CDATA[<h4 id="A-more-complicated-set-of-data"><a href="#A-more-complicated-set-of-data" class="headerlink" title="A more complicated set of data!"></a>A more complicated set of data!</h4><p>The Iris Flower before is a very simple set of data, so I found a more complicated data, which is about the NBA competition in 2014. The data can be obtained on this website: <a href="http://www.basketball-reference.com/leagues/NBA_2014_games.html" target="_blank" rel="noopener">http://www.basketball-reference.com/leagues/NBA_2014_games.html</a>. </p>
